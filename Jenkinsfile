@@ -76,7 +76,7 @@ pipeline {
         stage('Maven Build'){
           steps {
            container('maven') {
-                sh "mvn -B clean install -DskipTests=true -f ${POM_FILE} -s ${MAVEN_SETTINGS}"
+                sh "mvn -B clean install -DskipTests=true -f ${POM_FILE}"
             }
           }
         }
@@ -85,7 +85,7 @@ pipeline {
         stage('Maven Deploy'){
           steps {
             container('maven') {
-                sh "mvn -B spring-boot:start gatling:test spring-boot:stop -s ${MAVEN_SETTINGS}"
+                sh "mvn -B spring-boot:start gatling:test spring-boot:stop"
             }
           }
         }
