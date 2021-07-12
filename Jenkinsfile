@@ -55,11 +55,6 @@ pipeline {
            container('maven') {
                 sh "mvn -B clean install -DskipTests=true -f ${POM_FILE}"
             }
-            post {
-                always {
-                    gatlingArchive()
-                }
-            }
           }
         }
 
