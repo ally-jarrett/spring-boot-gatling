@@ -63,13 +63,17 @@ pipeline {
           }
         }
 
-        // Run Maven unit tests
-        stage('Gatling Performance Test'){
-          steps {
-            container('maven') {
-                sh "mvn -B spring-boot:start gatling:test spring-boot:stop"
+        stage('Gatling Performance Test') {
+            steps {
+                container('maven') {
+                    sh "mvn -B spring-boot:start gatling:test spring-boot:stop"
+                }
             }
-          }
-       }
+            post {
+                always {
+                    gatlingArchive()
+                }
+            }
+        }
     }
 }
