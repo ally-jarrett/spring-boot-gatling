@@ -8,6 +8,12 @@
     <artifactId>spring-boot-performance</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <properties>
+        <java.version>1.8</java.version>
+        <version.gatling.io>3.3.1</version.gatling.io>
+        <version.gatling.maven.plugin>3.1.2</version.gatling.maven.plugin>
+    </properties>
+
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
@@ -33,20 +39,26 @@
             <groupId>io.gatling.highcharts</groupId>
             <artifactId>gatling-charts-highcharts</artifactId>
             <scope>test</scope>
-            <version>3.0.2</version>
+            <version>${version.gatling.io}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.gatling</groupId>
+            <artifactId>gatling-app</artifactId>
+            <version>${version.gatling.io}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.gatling</groupId>
+            <artifactId>gatling-recorder</artifactId>
+            <version>${version.gatling.io}</version>
         </dependency>
     </dependencies>
-
-    <properties>
-        <java.version>1.8</java.version>
-    </properties>
 
     <build>
         <plugins>
             <plugin>
                 <groupId>io.gatling</groupId>
                 <artifactId>gatling-maven-plugin</artifactId>
-                <version>3.0.1</version>
+                <version>${version.gatling.maven.plugin}</version>
             </plugin>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
