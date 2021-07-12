@@ -34,11 +34,11 @@ pipeline {
                 tty: true
                 resources:
                   requests:
-                    cpu: 200m
+                    cpu: 500m
                     memory: 256Mi
                   limits:
-                    cpu: 500m
-                    memory: 512Mi
+                    cpu: 1
+                    memory: 1Gi
             """.stripIndent()
         }
     }
