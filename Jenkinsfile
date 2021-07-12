@@ -66,11 +66,8 @@ pipeline {
         stage('Gatling Performance Test') {
             steps {
                 container('maven') {
-                    try {
-                        sh "mvn -B spring-boot:start gatling:test spring-boot:stop"
-                    } finally {
-                        gatlingArchive()
-                    }
+                    sh "mvn -B spring-boot:start gatling:test spring-boot:stop"
+                    gatlingArchive()
                 }
             }
         }
